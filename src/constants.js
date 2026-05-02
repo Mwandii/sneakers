@@ -1,12 +1,12 @@
 // ─── PALETTE ─────────────────────────────────────────────────────────────────
 export const C = {
-  bg:      "#0F0E0D",   // deep warm charcoal
-  surface: "#161412",   // lifted dark
-  card:    "#1C1916",   // cards / inputs
-  accent:  "#E8854A",   // burnt orange — the ONE pop colour
-  ivory:   "#F0EAE0",   // warm cream
-  muted:   "#7A7068",   // warm mid-grey body text
-  border:  "rgba(240,234,224,0.07)",
+  bg:      "#0A0A0A",   // pure near-black
+  surface: "#111111",   // lifted dark
+  card:    "#181818",   // cards / inputs
+  ivory:   "#F5F0EB",   // warm off-white — primary text
+  muted:   "rgba(245,240,235,0.4)",   // dimmed text
+  faint:   "rgba(245,240,235,0.15)",  // very subtle text / borders
+  border:  "rgba(255,255,255,0.07)",  // barely-there dividers
 };
 
 // ─── WHATSAPP ─────────────────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ export function waLink(productName, price) {
 
 // ─── IMAGES ───────────────────────────────────────────────────────────────────
 export const IMAGES = {
-  heroBg: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1400&q=80",
+  heroBg: "https://images.unsplash.com/photo-1679284392448-e0812fbe3e8b?w=1600&q=100&auto=format",
   p1:     "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=700&q=80",
   p2:     "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=700&q=80",
   p3:     "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=700&q=80",
@@ -31,7 +31,7 @@ export const IMAGES = {
   t3:     "https://images.unsplash.com/photo-1556906781-9a412961a28b?w=700&q=80",
   feat1:  "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=900&q=80",
   feat2:  "https://images.unsplash.com/photo-1620188467120-5042ed1eb5da?w=900&q=80",
-  about:  "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=900&q=80",
+  about:  "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1400&q=90&auto=format",
 };
 
 // ─── NAV LINKS ────────────────────────────────────────────────────────────────
