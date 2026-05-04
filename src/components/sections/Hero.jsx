@@ -115,21 +115,21 @@ export default function Hero() {
             className="hero-img w-full h-full object-cover object-center opacity-[0.74]"
           />
           {/* Directional fades */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/88 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#0A0A0A] via-[#0A0A0A]/88 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent" />
           {/* Vignette */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
         </div>
 
         {/* ── Left accent line ─────────────────────────────────────── */}
-        <div className="absolute left-0 top-[12%] bottom-[12%] w-px z-10 bg-gradient-to-b from-transparent via-white/25 to-transparent" />
+        <div className="absolute left-0 top-[12%] bottom-[12%] w-px z-10 bg-linear-to-b from-transparent via-white/25 to-transparent" />
 
         {/* ── Content ──────────────────────────────────────────────── */}
-        <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 max-w-[980px]">
+        <div className="relative z-10 w-full px-8 sm:px-12 md:px-16 lg:px-20 max-w-245">
 
           {/* Eyebrow */}
           <div className="hu hu-d1 flex items-center gap-3 mb-6">
-            <span className="block w-8 h-px bg-white/30 flex-shrink-0" />
+            <span className="block w-8 h-px bg-white/30 shrink-0" />
             <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.3em] uppercase text-white/40">
               New Season Drop — 2025
             </span>
@@ -147,14 +147,14 @@ export default function Hero() {
 
           {/* Editorial sub-line */}
           <div className="hu hu-d3 flex items-center gap-4 mb-7">
-            <div className="h-px bg-white/10 w-16 flex-shrink-0" />
+            <div className="h-px bg-white/10 w-16 shrink-0" />
             <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-semibold tracking-[0.28em] uppercase text-white/20">
               Est. Nairobi · Premium Footwear
             </span>
           </div>
 
           {/* Body */}
-          <p className="hu hu-d3 font-['DM_Sans',sans-serif] font-light text-white/35 leading-[1.9] max-w-[400px] mb-10 text-[0.95rem] md:text-base">
+          <p className="hu hu-d3 font-['DM_Sans',sans-serif] font-light text-white/35 leading-[1.9] max-w-100 mb-10 text-[0.95rem] md:text-base">
             Nairobi's most trusted sneaker destination. Authentic, exclusive, and delivered to your door in 48 hours.
           </p>
 
