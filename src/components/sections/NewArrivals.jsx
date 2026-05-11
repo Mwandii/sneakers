@@ -135,14 +135,12 @@ export default function NewArrivals() {
             </h2>
           </div>
 
-          <a
-            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi! Can you show me all available sneakers?")}`}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            to="/catalogue"
             className="self-start sm:self-auto font-['DM_Sans',sans-serif] text-[0.65rem] font-bold tracking-[0.22em] uppercase text-white/35 border-b border-white/15 pb-0.5 hover:text-white hover:border-white/50 transition-all duration-200 whitespace-nowrap"
           >
             View All →
-          </a>
+          </Link>
         </div>
 
         {/* Grid

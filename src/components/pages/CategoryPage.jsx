@@ -263,7 +263,7 @@ export default function CategoryPage() {
         <div className="cat-animate cat-d1 mb-10 p-4 border border-white/6 bg-[#111111]">
           <p className="font-['DM_Sans',sans-serif] text-[0.72rem] font-light text-white/30 leading-relaxed">
             <span className="font-semibold text-white/50">How to order:</span>
-            &nbsp; Hover a shoe → click <em>Select Size</em> → pick your EU size → hit <em>Order</em>. We'll confirm availability on WhatsApp within the hour.
+            &nbsp; Select a shoe → click <em>Select Size</em> → pick your EU size → hit <em>Order</em>. We'll confirm availability on WhatsApp within the hour.
           </p>
         </div>
 
