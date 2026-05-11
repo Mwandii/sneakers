@@ -23,13 +23,13 @@ export default function Marquee() {
       `}</style>
 
       <div
-        className="relative overflow-hidden bg-[#111111] border-y border-white/[0.06] select-none"
+        className="relative overflow-hidden bg-[#111111] border-y border-white/6 select-none"
         onMouseEnter={pause}
         onMouseLeave={resume}
       >
         {/* Left + right fade masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-[#111111] to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-[#111111] to-transparent" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-linear-to-r from-[#111111] to-transparent" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-linear-to-l from-[#111111] to-transparent" />
 
         {/* Track — duplicated so it loops seamlessly */}
         <div
@@ -48,7 +48,7 @@ export default function Marquee() {
               </span>
 
               {/* Dot separator */}
-              <span className="w-[3px] h-[3px] rounded-full bg-white/20 flex-shrink-0" />
+              <span className="w-0.75 h-0.75 rounded-full bg-white/20 shrink-0" />
             </span>
           ))}
         </div>

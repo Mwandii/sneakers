@@ -5,7 +5,7 @@ import { WHATSAPP, IMAGES } from "../../constants";
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-white/30 flex-shrink-0" />
+      <span className="block w-7 h-px bg-white/30 shrink-0" />
       <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.28em] uppercase text-white/35">
         {children}
       </span>
@@ -95,12 +95,12 @@ export default function About() {
       <section
         id="about"
         ref={sectionRef}
-        className="bg-[#0A0A0A] border-t border-white/[0.06]"
+        className="bg-[#0A0A0A] border-t border-white/6"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-150">
 
           {/* ── Image column ─────────────────────────────────────────── */}
-          <div className="relative overflow-hidden bg-[#111111] min-h-[400px] lg:min-h-0">
+          <div className="relative overflow-hidden bg-[#111111] min-h-100 lg:min-h-0">
             <img
               ref={imageRef}
               src={IMAGES.about}
@@ -110,8 +110,8 @@ export default function About() {
             />
 
             {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0A0A0A] hidden lg:block" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-[#0A0A0A] hidden lg:block" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0A] via-transparent to-transparent lg:hidden" />
 
             {/* Floating stat card */}
             <div className="absolute bottom-8 left-8 bg-[#0A0A0A] border border-white/10 p-6 backdrop-blur-sm">
@@ -127,8 +127,8 @@ export default function About() {
             </div>
 
             {/* Corner accent line — decorative */}
-            <div className="absolute top-0 left-0 w-px h-24 bg-gradient-to-b from-white/20 to-transparent" />
-            <div className="absolute top-0 left-0 w-24 h-px bg-gradient-to-r from-white/20 to-transparent" />
+            <div className="absolute top-0 left-0 w-px h-24 bg-linear-to-b from-white/20 to-transparent" />
+            <div className="absolute top-0 left-0 w-24 h-px bg-linear-to-r from-white/20 to-transparent" />
           </div>
 
           {/* ── Text column ──────────────────────────────────────────── */}

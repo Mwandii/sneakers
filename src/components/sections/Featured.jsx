@@ -5,7 +5,7 @@ import { featured, waLink } from "../../constants";
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-white/30 flex-shrink-0" />
+      <span className="block w-7 h-px bg-white/30 shrink-0" />
       <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.28em] uppercase text-white/35">
         {children}
       </span>
@@ -22,10 +22,10 @@ function FeaturedCard({ product, index }) {
       href={waLink(product.name, product.price)}
       target="_blank"
       rel="noreferrer"
-      className="group relative flex flex-col bg-[#111111] overflow-hidden border border-white/[0.05] hover:border-white/20 transition-all duration-500"
+      className="group relative flex flex-col bg-[#111111] overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500"
     >
       {/* Image */}
-      <div className="relative overflow-hidden bg-[#181818] h-[380px] md:h-[480px] lg:h-[560px]">
+      <div className="relative overflow-hidden bg-[#181818] h-95 md:h-120 lg:h-140">
         <img
           src={product.img}
           alt={product.name}
@@ -33,7 +33,7 @@ function FeaturedCard({ product, index }) {
         />
 
         {/* Gradient — stronger at bottom for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#111111] via-[#111111]/20 to-transparent" />
 
         {/* Tag */}
         <div className="absolute top-5 left-5">
@@ -59,7 +59,7 @@ function FeaturedCard({ product, index }) {
       </div>
 
       {/* Info bar */}
-      <div className="flex items-end justify-between gap-4 px-6 py-6 border-t border-white/[0.06]">
+      <div className="flex items-end justify-between gap-4 px-6 py-6 border-t border-white/6">
         <div className="flex flex-col gap-1.5 min-w-0">
           <p className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.26em] uppercase text-white/30">
             {product.brand}
@@ -68,7 +68,7 @@ function FeaturedCard({ product, index }) {
             {product.name}
           </p>
         </div>
-        <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+        <div className="flex flex-col items-end gap-1.5 shrink-0">
           <span className="font-['Playfair_Display',serif] text-[1.25rem] font-bold text-white whitespace-nowrap">
             {product.price}
           </span>
@@ -124,7 +124,7 @@ export default function Featured() {
       <section
         id="featured"
         ref={sectionRef}
-        className="bg-[#0A0A0A] border-t border-white/[0.06] px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
+        className="bg-[#0A0A0A] border-t border-white/6 px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
       >
         {/* ── Header ── */}
         <div className="fe-animate fe-d0 flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 md:mb-16">
@@ -139,13 +139,13 @@ export default function Featured() {
           </div>
 
           {/* Right side — editorial descriptor */}
-          <p className="hidden md:block font-['DM_Sans',sans-serif] text-[0.72rem] font-light text-white/20 max-w-[200px] leading-relaxed text-right">
+          <p className="hidden md:block font-['DM_Sans',sans-serif] text-[0.72rem] font-light text-white/20 max-w-50 leading-relaxed text-right">
             Handpicked by us.<br />Coveted by everyone.
           </p>
         </div>
 
         {/* ── Two-column card grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/4">
           {featured.map((product, i) => (
             <div
               key={product.id}
@@ -157,7 +157,7 @@ export default function Featured() {
         </div>
 
         {/* ── Bottom editorial strip ── */}
-        <div className="fe-animate fe-d3 mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-8 border-t border-white/[0.06]">
+        <div className="fe-animate fe-d3 mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-8 border-t border-white/6">
           {/* Left — tagline */}
           <p className="font-['DM_Sans',sans-serif] text-[0.6rem] font-semibold tracking-[0.24em] uppercase text-white/15">
             Limited availability &nbsp;·&nbsp; First come, first served

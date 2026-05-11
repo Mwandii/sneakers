@@ -5,7 +5,7 @@ import { newArrivals, WHATSAPP, waLink } from "../../constants";
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-white/30 flex-shrink-0" />
+      <span className="block w-7 h-px bg-white/30 shrink-0" />
       <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.28em] uppercase text-white/35">
         {children}
       </span>
@@ -29,16 +29,16 @@ function ProductCard({ product, large }) {
       href={waLink(product.name, product.price)}
       target="_blank"
       rel="noreferrer"
-      className="group flex flex-col bg-[#111111] overflow-hidden border border-white/[0.05] hover:border-white/20 transition-all duration-500 h-full"
+      className="group flex flex-col bg-[#111111] overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500 h-full"
     >
       {/* Image */}
-      <div className={`relative overflow-hidden bg-[#181818] flex-shrink-0 ${large ? "h-[340px] md:h-[440px]" : "h-[240px] md:h-[280px]"}`}>
+      <div className={`relative overflow-hidden bg-[#181818] shrink-0 ${large ? "h-85 md:h-110" : "h-60 md:h-70"}`}>
         <img
           src={product.img}
           alt={product.name}
           className="w-full h-full object-cover opacity-90 transition-transform duration-700 ease-[cubic-bezier(.25,.46,.45,.94)] group-hover:scale-[1.06]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#111111]/60 via-transparent to-transparent" />
 
         {product.tag && (
           <div className="absolute top-4 left-4">
@@ -62,7 +62,7 @@ function ProductCard({ product, large }) {
         <p className="font-['DM_Sans',sans-serif] text-[0.95rem] font-semibold text-white/70 leading-snug mb-auto group-hover:text-white transition-colors duration-300">
           {product.name}
         </p>
-        <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.06]">
+        <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/6">
           <span className="font-['Playfair_Display',serif] text-[1.2rem] font-bold text-white">
             {product.price}
           </span>
@@ -150,7 +150,7 @@ export default function NewArrivals() {
             Desktop : [large spans 2] [card] [card] — row 1
                       [card spans 2] [cta]           — row 2
         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/4">
 
           {/* Card 0 — large, spans 2 cols on desktop */}
           <div className="na-animate na-d1 bg-[#0A0A0A] sm:col-span-2 lg:col-span-2">
@@ -178,7 +178,7 @@ export default function NewArrivals() {
               href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi! Can you show me your full sneaker collection?")}`}
               target="_blank"
               rel="noreferrer"
-              className="group flex flex-col items-center justify-center w-full h-full bg-[#111111] border border-white/[0.05] hover:bg-[#181818] hover:border-white/15 transition-all duration-500 p-10 min-h-[260px]"
+              className="group flex flex-col items-center justify-center w-full h-full bg-[#111111] border border-white/5 hover:bg-[#181818] hover:border-white/15 transition-all duration-500 p-10 min-h-65"
             >
               <span
                 className="font-['Playfair_Display',serif] font-black text-white/15 group-hover:text-white/30 text-center leading-tight mb-4 transition-colors duration-300"

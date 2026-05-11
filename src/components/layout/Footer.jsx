@@ -27,7 +27,7 @@ function SocialBtn({ label, href }) {
       rel="noreferrer"
       className="
         w-9 h-9 flex items-center justify-center
-        border border-white/[0.08]
+        border border-white/8
         font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-wider
         text-white/20 uppercase
         hover:border-white/30 hover:text-white/60
@@ -97,10 +97,10 @@ export default function Footer() {
 
       <footer
         ref={footerRef}
-        className="bg-[#0A0A0A] border-t border-white/[0.06]"
+        className="bg-[#0A0A0A] border-t border-white/6"
       >
         {/* ── Large editorial headline ticker ──────────────────────── */}
-        <div className="overflow-hidden border-b border-white/[0.04] py-6 select-none">
+        <div className="overflow-hidden border-b border-white/4 py-6 select-none">
           <div className="footer-ticker flex whitespace-nowrap">
             {Array.from({ length: 8 }).map((_, i) => (
               <span
@@ -108,12 +108,12 @@ export default function Footer() {
                 className="inline-flex items-center gap-8 px-6"
               >
                 <span
-                  className="font-['Playfair_Display',serif] font-black text-white/[0.04] whitespace-nowrap italic"
+                  className="font-['Playfair_Display',serif] font-black text-white/4 whitespace-nowrap italic"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
                 >
                   Mwandi's Sneakers
                 </span>
-                <span className="w-2 h-2 rounded-full bg-white/[0.04] flex-shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-white/4 shrink-0" />
               </span>
             ))}
           </div>
@@ -130,17 +130,17 @@ export default function Footer() {
                 onClick={() => scrollTo("hero")}
                 className="flex items-center gap-2.5 mb-5 bg-transparent border-none cursor-pointer group p-0"
               >
-                <div className="w-7 h-7 bg-white flex items-center justify-center flex-shrink-0 group-hover:bg-[#F5F0EB] transition-colors duration-200">
+                <div className="w-7 h-7 bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F5F0EB] transition-colors duration-200">
                   <span className="font-['Playfair_Display',serif] text-[0.78rem] font-black text-[#0A0A0A] leading-none select-none">
                     M
                   </span>
                 </div>
-                <span className="font-['Playfair_Display',serif] text-[1rem] font-bold tracking-[0.05em] text-white/70 leading-none">
+                <span className="font-['Playfair_Display',serif] text-[1rem] font-bold tracking-wider text-white/70 leading-none">
                   Mwandi's <span className="text-white font-black">Sneakers</span>
                 </span>
               </button>
 
-              <p className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/20 leading-[1.85] max-w-[220px]">
+              <p className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/20 leading-[1.85] max-w-55">
                 Nairobi's most trusted sneaker destination. Authentic kicks, real service.
               </p>
 
@@ -224,7 +224,7 @@ export default function Footer() {
           </div>
 
           {/* ── Divider ── */}
-          <div className="fo-animate fo-d4 h-px bg-white/[0.06] mb-8" />
+          <div className="fo-animate fo-d4 h-px bg-white/6 mb-8" />
 
           {/* ── Bottom bar ── */}
           <div className="fo-animate fo-d4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

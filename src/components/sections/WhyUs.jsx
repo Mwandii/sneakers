@@ -5,7 +5,7 @@ import { whyUs } from "../../constants";
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-white/30 flex-shrink-0" />
+      <span className="block w-7 h-px bg-white/30 shrink-0" />
       <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.28em] uppercase text-white/35">
         {children}
       </span>
@@ -16,7 +16,7 @@ function SectionLabel({ children }) {
 // ─── PROMISE CARD ─────────────────────────────────────────────────────────────
 function PromiseCard({ item, index }) {
   return (
-    <div className="group flex flex-col gap-6 p-7 md:p-9 bg-[#111111] border border-white/[0.05] hover:border-white/15 transition-all duration-500">
+    <div className="group flex flex-col gap-6 p-7 md:p-9 bg-[#111111] border border-white/5 hover:border-white/15 transition-all duration-500">
       {/* Number */}
       <span className="font-['Playfair_Display',serif] font-black text-white/10 leading-none group-hover:text-white/20 transition-colors duration-500"
         style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>
@@ -28,7 +28,7 @@ function PromiseCard({ item, index }) {
 
       {/* Text */}
       <div className="flex flex-col gap-3">
-        <h3 className="font-['DM_Sans',sans-serif] text-[0.82rem] font-bold tracking-[0.1em] uppercase text-white/80 group-hover:text-white transition-colors duration-300">
+        <h3 className="font-['DM_Sans',sans-serif] text-[0.82rem] font-bold tracking-widest uppercase text-white/80 group-hover:text-white transition-colors duration-300">
           {item.title}
         </h3>
         <p className="font-['DM_Sans',sans-serif] text-[0.88rem] font-light leading-[1.8] text-white/30">
@@ -82,7 +82,7 @@ export default function WhyUs() {
 
       <section
         ref={sectionRef}
-        className="bg-[#111111] border-t border-white/[0.06] px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
+        className="bg-[#111111] border-t border-white/6 px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
       >
         {/* ── Header ── */}
         <div className="wu-animate wu-d0 flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 md:mb-20">
@@ -98,13 +98,13 @@ export default function WhyUs() {
           </div>
 
           {/* Right — supporting statement */}
-          <p className="font-['DM_Sans',sans-serif] text-[0.88rem] font-light text-white/25 max-w-[280px] leading-[1.85] hidden md:block">
+          <p className="font-['DM_Sans',sans-serif] text-[0.88rem] font-light text-white/25 max-w-70 leading-[1.85] hidden md:block">
             Every decision we make — from sourcing to delivery — is built around one thing: your trust.
           </p>
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/4">
           {whyUs.map((item, i) => (
             <div
               key={item.num}
@@ -116,7 +116,7 @@ export default function WhyUs() {
         </div>
 
         {/* ── Bottom strip ── */}
-        <div className="wu-animate wu-d4 mt-12 md:mt-16 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="wu-animate wu-d4 mt-12 md:mt-16 pt-8 border-t border-white/6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="font-['DM_Sans',sans-serif] text-[0.6rem] font-semibold tracking-[0.24em] uppercase text-white/15">
             Trusted by hundreds of customers across Nairobi
           </p>

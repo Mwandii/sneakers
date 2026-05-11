@@ -21,7 +21,7 @@ function Logo({ onClick }) {
       aria-label="Go to top"
       className="flex items-center gap-2.5 p-0 bg-transparent border-none cursor-pointer group"
     >
-      <div className="w-[30px] h-[30px] bg-white flex items-center justify-center shrink-0 transition-colors duration-200 group-hover:bg-[#F5F0EB]">
+      <div className="w-7.5 h-7.5 bg-white flex items-center justify-center shrink-0 transition-colors duration-200 group-hover:bg-[#F5F0EB]">
         <span className="font-['Playfair_Display',serif] text-[0.85rem] font-extrabold text-[#0A0A0A] leading-none select-none">
           M
         </span>
@@ -98,17 +98,17 @@ function Hamburger({ open, onClick }) {
     >
       <span
         className={`block h-px bg-[#F5F0EB] rounded-full transition-all duration-300 ease-in-out origin-center ${
-          open ? "w-[22px] rotate-45 translate-y-[7px]" : "w-[22px]"
+          open ? "w-5.5 rotate-45 translate-y-1.75" : "w-5.5"
         }`}
       />
       <span
         className={`block h-px bg-[#F5F0EB] rounded-full transition-all duration-300 ease-in-out ${
-          open ? "opacity-0 w-0" : "opacity-100 w-[14px]"
+          open ? "opacity-0 w-0" : "opacity-100 w-3.5"
         }`}
       />
       <span
         className={`block h-px bg-[#F5F0EB] rounded-full transition-all duration-300 ease-in-out origin-center ${
-          open ? "w-[22px] -rotate-45 -translate-y-[7px]" : "w-[22px]"
+          open ? "w-5.5 -rotate-45 -translate-y-1.75" : "w-5.5"
         }`}
       />
     </button>
@@ -130,7 +130,7 @@ function MobileDrawer({ open, onNav }) {
       <div
         onClick={() => onNav(null)}
         className={`
-          fixed inset-0 z-[38] bg-black/80 backdrop-blur-sm
+          fixed inset-0 z-38 bg-black/80 backdrop-blur-sm
           transition-opacity duration-350
           ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
         `}
@@ -139,11 +139,11 @@ function MobileDrawer({ open, onNav }) {
       {/* Drawer panel */}
       <div
         className={`
-          fixed top-0 right-0 bottom-0 z-[39]
+          fixed top-0 right-0 bottom-0 z-39
           w-[min(320px,85vw)] bg-[#0A0A0A]
           border-l border-white/10
           flex flex-col
-          pt-[88px] pb-12 px-9
+          pt-22 pb-12 px-9
           overflow-y-auto
           transition-transform duration-400 ease-in-out
           ${open ? "translate-x-0" : "translate-x-full"}
@@ -165,7 +165,7 @@ function MobileDrawer({ open, onNav }) {
               onClick={() => onNav(id)}
               className="
                 bg-transparent border-none border-b border-white/10
-                cursor-pointer py-[18px] text-left
+                cursor-pointer py-4.5 text-left
                 font-['Playfair_Display',serif] text-[1.35rem] font-bold
                 text-white/50 tracking-[0.02em]
                 hover:text-white hover:pl-1.5
@@ -255,7 +255,7 @@ export default function Navbar() {
           }
         `}
       >
-        <div className="flex items-center justify-between px-5 md:px-12 h-15.5 max-w-[1440px] mx-auto w-full">
+        <div className="flex items-center justify-between px-5 md:px-12 h-15.5 max-w-360 mx-auto w-full">
           <Logo onClick={() => scrollTo("hero")} />
           <DesktopLinks onNav={scrollTo} />
           <div className="hidden md:block">

@@ -5,7 +5,7 @@ import { trending, waLink } from "../../constants";
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-white/30 flex-shrink-0" />
+      <span className="block w-7 h-px bg-white/30 shrink-0" />
       <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.28em] uppercase text-white/35">
         {children}
       </span>
@@ -20,10 +20,10 @@ function TrendingCard({ product, index }) {
       href={waLink(product.name, product.price)}
       target="_blank"
       rel="noreferrer"
-      className="group block bg-[#111111] border border-white/[0.05] hover:border-white/20 overflow-hidden transition-all duration-500"
+      className="group block bg-[#111111] border border-white/5 hover:border-white/20 overflow-hidden transition-all duration-500"
     >
       {/* Image */}
-      <div className="relative overflow-hidden bg-[#181818] h-[300px] md:h-[360px]">
+      <div className="relative overflow-hidden bg-[#181818] h-75 md:h-90">
         <img
           src={product.img}
           alt={product.name}
@@ -31,7 +31,7 @@ function TrendingCard({ product, index }) {
         />
 
         {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#111111]/80 via-transparent to-transparent" />
 
         {/* Index number — large editorial watermark */}
         <div className="absolute top-4 right-5 font-['Playfair_Display',serif] font-black text-white/8 leading-none select-none"
@@ -66,7 +66,7 @@ function TrendingCard({ product, index }) {
             {product.name}
           </p>
         </div>
-        <div className="flex flex-col items-end gap-1 flex-shrink-0">
+        <div className="flex flex-col items-end gap-1 shrink-0">
           <span className="font-['Playfair_Display',serif] text-[1.15rem] font-bold text-white whitespace-nowrap">
             {product.price}
           </span>
@@ -122,7 +122,7 @@ export default function Trending() {
       <section
         id="trending"
         ref={sectionRef}
-        className="bg-[#111111] border-t border-white/[0.06] px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
+        className="bg-[#111111] border-t border-white/6 px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
       >
         {/* ── Header ── */}
         <div className="tr-animate tr-d1 flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 md:mb-16">
@@ -137,13 +137,13 @@ export default function Trending() {
           </div>
 
           {/* Editorial pull-quote */}
-          <p className="font-['DM_Sans',sans-serif] text-[0.72rem] font-light text-white/20 max-w-[220px] leading-relaxed hidden md:block">
+          <p className="font-['DM_Sans',sans-serif] text-[0.72rem] font-light text-white/20 max-w-55 leading-relaxed hidden md:block">
             The pairs everyone's asking about right now.
           </p>
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/4">
           {trending.map((product, i) => (
             <div
               key={product.id}
@@ -155,7 +155,7 @@ export default function Trending() {
         </div>
 
         {/* ── Bottom rule + rank strip ── */}
-        <div className="tr-animate tr-d4 mt-16 pt-8 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-6">
+        <div className="tr-animate tr-d4 mt-16 pt-8 border-t border-white/6 flex flex-wrap items-center justify-between gap-6">
           {/* Rank labels */}
           <div className="flex items-center gap-6">
             {trending.map((p, i) => (

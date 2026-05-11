@@ -5,7 +5,7 @@ import { WHATSAPP } from "../../constants";
 function SectionLabel({ children, center = false }) {
   return (
     <div className={`flex items-center gap-3 mb-4 ${center ? "justify-center" : ""}`}>
-      <span className="block w-7 h-px bg-white/30 flex-shrink-0" />
+      <span className="block w-7 h-px bg-white/30 shrink-0" />
       <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.28em] uppercase text-white/35">
         {children}
       </span>
@@ -64,7 +64,7 @@ function FormField({ label, id, type = "text", placeholder, required = true, as 
 // ─── CONTACT INFO ROW ─────────────────────────────────────────────────────────
 function InfoRow({ label, value, href }) {
   return (
-    <div className="flex flex-col gap-1.5 py-5 border-b border-white/[0.06]">
+    <div className="flex flex-col gap-1.5 py-5 border-b border-white/6">
       <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.24em] uppercase text-white/25">
         {label}
       </span>
@@ -95,7 +95,7 @@ function SocialBtn({ label, href }) {
       rel="noreferrer"
       className="
         w-10 h-10 flex items-center justify-center
-        border border-white/[0.08] bg-[#181818]
+        border border-white/8 bg-[#181818]
         font-['DM_Sans',sans-serif] text-[0.6rem] font-bold tracking-wider
         text-white/25 uppercase
         hover:border-white/30 hover:text-white
@@ -182,7 +182,7 @@ export default function Contact() {
       <section
         id="contact"
         ref={sectionRef}
-        className="bg-[#111111] border-t border-white/[0.06] px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
+        className="bg-[#111111] border-t border-white/6 px-5 sm:px-8 md:px-12 lg:px-16 py-24 md:py-32"
       >
         {/* ── Section header ── */}
         <div className="co-animate co-d0 mb-14 md:mb-20 max-w-xl">
@@ -206,7 +206,7 @@ export default function Contact() {
           <div className="co-animate co-d1 flex flex-col">
 
             {/* Info rows */}
-            <div className="border-t border-white/[0.06]">
+            <div className="border-t border-white/6">
               <InfoRow label="Location"         value="Thika Road, Nairobi, Kenya" />
               <InfoRow
                 label="Phone / WhatsApp"
@@ -235,8 +235,8 @@ export default function Contact() {
             </div>
 
             {/* WhatsApp direct CTA */}
-            <div className="mt-10 pt-10 border-t border-white/[0.06]">
-              <p className="font-['DM_Sans',sans-serif] text-[0.78rem] font-light text-white/25 leading-[1.8] mb-5 max-w-[300px]">
+            <div className="mt-10 pt-10 border-t border-white/6">
+              <p className="font-['DM_Sans',sans-serif] text-[0.78rem] font-light text-white/25 leading-[1.8] mb-5 max-w-75">
                 Fastest way to reach us — click below and we'll respond immediately.
               </p>
               <a
@@ -261,7 +261,7 @@ export default function Contact() {
             {status === "success" ? (
               /* Success state */
               <div className="flex flex-col items-start justify-center h-full gap-5 py-12">
-                <div className="w-12 h-12 border border-white/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 border border-white/20 flex items-center justify-center shrink-0">
                   <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
