@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { newArrivals, WHATSAPP, waLink } from "../../constants";
+import { Link } from "react-router-dom";
 
 // ─── SECTION LABEL ────────────────────────────────────────────────────────────
 function SectionLabel({ children }) {
@@ -174,10 +175,9 @@ export default function NewArrivals() {
 
           {/* CTA tile — desktop only, fills last slot */}
           <div className="na-animate na-d5 bg-[#0A0A0A] hidden lg:block">
-            <a
-              href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi! Can you show me your full sneaker collection?")}`}
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/catalogue"
+              
               className="group flex flex-col items-center justify-center w-full h-full bg-[#111111] border border-white/5 hover:bg-[#181818] hover:border-white/15 transition-all duration-500 p-10 min-h-65"
             >
               <span
@@ -189,20 +189,18 @@ export default function NewArrivals() {
               <span className="font-['DM_Sans',sans-serif] text-[0.6rem] font-bold tracking-[0.24em] uppercase text-white/20 group-hover:text-white/40 transition-colors duration-300">
                 50+ Styles →
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 
         {/* Mobile — view all button */}
         <div className="mt-10 flex justify-center lg:hidden">
-          <a
-            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi! Can you show me your full sneaker collection?")}`}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            to="/catalogue"
             className="bg-white text-[#0A0A0A] font-['DM_Sans',sans-serif] text-[0.7rem] font-bold tracking-[0.22em] uppercase px-10 py-4 hover:bg-[#F5F0EB] transition-colors duration-200"
           >
             View Full Catalogue
-          </a>
+          </Link>
         </div>
       </section>
     </>

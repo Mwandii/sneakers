@@ -62,7 +62,7 @@ function DesktopLinks({ onNav }) {
 }
 
 // ─── WHATSAPP CTA ────────────────────────────────────────────────────────────
-function WhatsAppCTA({ className = "", fullWidth = false }) {
+function WhatsAppCTA({ fullWidth = false, className = "" }) {
   const href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
     "Hi Mwandi! I'd like to enquire about your sneakers."
   )}`;
@@ -75,10 +75,9 @@ function WhatsAppCTA({ className = "", fullWidth = false }) {
         inline-block border border-white text-white bg-transparent
         font-['DM_Sans',sans-serif] text-[0.68rem] font-bold
         tracking-[0.18em] uppercase px-5 py-2.5
-        hover:bg-white hover:text-[#0A0A0A]
-        hover:-translate-y-px
+        hover:bg-white hover:text-[#0A0A0A] hover:-translate-y-px
         transition-all duration-200 whitespace-nowrap
-        ${fullWidth ? "w-full text-center py-3.5 block" : ""}
+        ${fullWidth ? "w-full text-center py-4 block" : ""}
         ${className}
       `}
     >
@@ -88,85 +87,94 @@ function WhatsAppCTA({ className = "", fullWidth = false }) {
 }
 
 // ─── HAMBURGER ───────────────────────────────────────────────────────────────
-function Hamburger({ open, onClick }) {
+// Always just three bars — no X state. The X lives inside the drawer.
+function Hamburger({ onClick }) {
   return (
     <button
       onClick={onClick}
-      aria-label={open ? "Close menu" : "Open menu"}
-      aria-expanded={open}
-      className="flex md:hidden flex-col justify-center items-end gap-1.5 w-9 h-9 bg-transparent border-none cursor-pointer p-1"
+      aria-label="Open menu"
+      className="flex md:hidden flex-col justify-center items-end gap-1.5 w-9 h-9 bg-transparent border-none cursor-pointer p-1 shrink-0"
     >
-      <span
-        className={`block h-px bg-[#F5F0EB] rounded-full transition-all duration-300 ease-in-out origin-center ${
-          open ? "w-5.5 rotate-45 translate-y-1.75" : "w-5.5"
-        }`}
-      />
-      <span
-        className={`block h-px bg-[#F5F0EB] rounded-full transition-all duration-300 ease-in-out ${
-          open ? "opacity-0 w-0" : "opacity-100 w-3.5"
-        }`}
-      />
-      <span
-        className={`block h-px bg-[#F5F0EB] rounded-full transition-all duration-300 ease-in-out origin-center ${
-          open ? "w-5.5 -rotate-45 -translate-y-1.75" : "w-5.5"
-        }`}
-      />
+      <span className="block w-5.5 h-px bg-[#F5F0EB] rounded-full" />
+      <span className="block w-3.5 h-px bg-[#F5F0EB] rounded-full" />
+      <span className="block w-5.5 h-px bg-[#F5F0EB] rounded-full" />
     </button>
   );
 }
 
 // ─── MOBILE DRAWER ───────────────────────────────────────────────────────────
-function MobileDrawer({ open, onNav }) {
+function MobileDrawer({ open, onClose, onNav }) {
+  // Body scroll lock
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop — covers everything including the header */}
       <div
-        onClick={() => onNav(null)}
+        onClick={onClose}
         className={`
-          fixed inset-0 z-38 bg-black/80 backdrop-blur-sm
-          transition-opacity duration-350
+          fixed inset-0 z-48 bg-black/80 backdrop-blur-sm
+          transition-opacity duration-300
           ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
         `}
       />
 
-      {/* Drawer panel */}
+      {/* Drawer panel — z-[49] so it sits above the header (z-40) and backdrop */}
       <div
         className={`
-          fixed top-0 right-0 bottom-0 z-39
+          fixed inset-y-0 right-0 z-49
           w-[min(320px,85vw)] bg-[#0A0A0A]
           border-l border-white/10
-          flex flex-col
-          pt-22 pb-12 px-9
-          overflow-y-auto
-          transition-transform duration-400 ease-in-out
+          flex flex-col overflow-y-auto
+          transition-transform duration-380 ease-in-out
           ${open ? "translate-x-0" : "translate-x-full"}
         `}
       >
-        {/* Close label */}
-        <button
-          onClick={() => onNav(null)}
-          className="absolute top-6 right-6 bg-transparent border-none cursor-pointer font-['DM_Sans',sans-serif] text-[0.6rem] font-bold tracking-[0.2em] uppercase text-white/25 hover:text-white transition-colors duration-200"
-        >
-          Close
-        </button>
+        {/* Drawer header — mini logo + close button */}
+        <div className="flex items-center justify-between px-7 h-15.5 border-b border-white/[0.07] shrink-0">
+          {/* Mini logo */}
+          <div className="flex items-center gap-2.5">
+            <div className="w-6 h-6 bg-white flex items-center justify-center shrink-0">
+              <span className="font-['Playfair_Display',serif] text-[0.72rem] font-black text-[#0A0A0A] leading-none">
+                M
+              </span>
+            </div>
+            <span className="font-['Playfair_Display',serif] text-[0.9rem] font-bold text-white/50 leading-none">
+              Mwandi's
+            </span>
+          </div>
+
+          {/* Close — X icon + label */}
+          <button
+            onClick={onClose}
+            aria-label="Close menu"
+            className="flex items-center gap-2 bg-transparent border-none cursor-pointer group"
+          >
+            <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.2em] uppercase text-white/25 group-hover:text-white/60 transition-colors duration-200">
+              Close
+            </span>
+            <svg
+              className="w-4 h-4 text-white/25 group-hover:text-white/60 transition-colors duration-200"
+              fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
         {/* Nav links */}
-        <nav className="flex flex-col mb-10 border-t border-white/10">
+        <nav className="flex flex-col px-7 pt-2 pb-6 border-b border-white/6">
           {NAV_LINKS.map(({ label, id }) => (
             <button
               key={id}
               onClick={() => onNav(id)}
               className="
-                bg-transparent border-none border-b border-white/10
+                bg-transparent border-none border-b border-white/[0.07]
                 cursor-pointer py-4.5 text-left
-                font-['Playfair_Display',serif] text-[1.35rem] font-bold
+                font-['Playfair_Display',serif] text-[1.3rem] font-bold
                 text-white/50 tracking-[0.02em]
                 hover:text-white hover:pl-1.5
                 transition-all duration-200
@@ -177,24 +185,28 @@ function MobileDrawer({ open, onNav }) {
           ))}
         </nav>
 
-        {/* Divider */}
-        <div className="h-px bg-white/10 mb-9" />
-
         {/* Contact info */}
-        <div className="flex flex-col gap-1.5 mb-8">
-          <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.2em] uppercase text-white/40">
+        <div className="flex flex-col gap-1.5 px-7 pt-7 pb-5">
+          <span className="font-['DM_Sans',sans-serif] text-[0.56rem] font-bold tracking-[0.22em] uppercase text-white/25">
             WhatsApp
           </span>
-          <span className="font-['DM_Sans',sans-serif] text-[0.9rem] font-medium text-white/60">
+          <a
+            href={`https://wa.me/${WHATSAPP}`}
+            target="_blank"
+            rel="noreferrer"
+            className="font-['DM_Sans',sans-serif] text-[0.9rem] font-medium text-white/50 hover:text-white transition-colors duration-200"
+          >
             +254 718 525 592
-          </span>
+          </a>
         </div>
 
         {/* CTA */}
-        <WhatsAppCTA fullWidth />
+        <div className="px-7 pb-4">
+          <WhatsAppCTA fullWidth />
+        </div>
 
         {/* Tagline */}
-        <p className="mt-auto pt-10 font-['DM_Sans',sans-serif] text-[0.72rem] font-light leading-[1.7] text-white/15">
+        <p className="mt-auto px-7 pb-8 pt-6 font-['DM_Sans',sans-serif] text-[0.68rem] font-light leading-[1.8] text-white/15">
           Nairobi's most trusted sneaker destination. Authentic kicks, real service.
         </p>
       </div>
@@ -232,14 +244,15 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const scrollTo = (id) => {
+  const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const handleNav = useCallback((id) => {
     setMenuOpen(false);
     if (id) setTimeout(() => scrollTo(id), 50);
   }, []);
+
+  const closeDrawer = useCallback(() => setMenuOpen(false), []);
 
   return (
     <>
@@ -261,11 +274,20 @@ export default function Navbar() {
           <div className="hidden md:block">
             <WhatsAppCTA />
           </div>
-          <Hamburger open={menuOpen} onClick={() => setMenuOpen((v) => !v)} />
+          {/* Hamburger only shows when drawer is closed */}
+          {!menuOpen && (
+            <Hamburger onClick={() => setMenuOpen(true)} />
+          )}
         </div>
       </header>
 
-      {isMobile && <MobileDrawer open={menuOpen} onNav={handleNav} />}
+      {isMobile && (
+        <MobileDrawer
+          open={menuOpen}
+          onClose={closeDrawer}
+          onNav={handleNav}
+        />
+      )}
     </>
   );
 }
