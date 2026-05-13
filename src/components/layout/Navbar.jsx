@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { WHATSAPP, NAV_LINKS } from "../../constants";
 
 // ─── ANNOUNCEMENT BAR ────────────────────────────────────────────────────────
@@ -87,7 +88,6 @@ function WhatsAppCTA({ fullWidth = false, className = "" }) {
 }
 
 // ─── HAMBURGER ───────────────────────────────────────────────────────────────
-// Always just three bars — no X state. The X lives inside the drawer.
 function Hamburger({ onClick }) {
   return (
     <button
@@ -104,7 +104,6 @@ function Hamburger({ onClick }) {
 
 // ─── MOBILE DRAWER ───────────────────────────────────────────────────────────
 function MobileDrawer({ open, onClose, onNav }) {
-  // Body scroll lock
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -112,7 +111,7 @@ function MobileDrawer({ open, onClose, onNav }) {
 
   return (
     <>
-      {/* Backdrop — covers everything including the header */}
+      {/* Backdrop */}
       <div
         onClick={onClose}
         className={`
@@ -122,7 +121,7 @@ function MobileDrawer({ open, onClose, onNav }) {
         `}
       />
 
-      {/* Drawer panel — z-[49] so it sits above the header (z-40) and backdrop */}
+      {/* Drawer panel */}
       <div
         className={`
           fixed inset-y-0 right-0 z-49
@@ -133,9 +132,8 @@ function MobileDrawer({ open, onClose, onNav }) {
           ${open ? "translate-x-0" : "translate-x-full"}
         `}
       >
-        {/* Drawer header — mini logo + close button */}
+        {/* Drawer header */}
         <div className="flex items-center justify-between px-7 h-15.5 border-b border-white/[0.07] shrink-0">
-          {/* Mini logo */}
           <div className="flex items-center gap-2.5">
             <div className="w-6 h-6 bg-white flex items-center justify-center shrink-0">
               <span className="font-['Playfair_Display',serif] text-[0.72rem] font-black text-[#0A0A0A] leading-none">
@@ -147,7 +145,6 @@ function MobileDrawer({ open, onClose, onNav }) {
             </span>
           </div>
 
-          {/* Close — X icon + label */}
           <button
             onClick={onClose}
             aria-label="Close menu"
@@ -156,10 +153,8 @@ function MobileDrawer({ open, onClose, onNav }) {
             <span className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.2em] uppercase text-white/25 group-hover:text-white/60 transition-colors duration-200">
               Close
             </span>
-            <svg
-              className="w-4 h-4 text-white/25 group-hover:text-white/60 transition-colors duration-200"
-              fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"
-            >
+            <svg className="w-4 h-4 text-white/25 group-hover:text-white/60 transition-colors duration-200"
+              fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -220,6 +215,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
     onScroll();
@@ -244,13 +242,33 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const scrollTo = (id) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  // ── Core nav function ──
+  // On homepage: smooth scroll to section
+  // On any other page: navigate to homepage, then scroll after render
+  const scrollTo = useCallback((id) => {
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 350);
+    }
+  }, [location.pathname, navigate]);
+
+  // Logo click — go home and scroll to top
+  const goHome = useCallback(() => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  }, [location.pathname, navigate]);
 
   const handleNav = useCallback((id) => {
     setMenuOpen(false);
     if (id) setTimeout(() => scrollTo(id), 50);
-  }, []);
+  }, [scrollTo]);
 
   const closeDrawer = useCallback(() => setMenuOpen(false), []);
 
@@ -269,12 +287,11 @@ export default function Navbar() {
         `}
       >
         <div className="flex items-center justify-between px-5 md:px-12 h-15.5 max-w-360 mx-auto w-full">
-          <Logo onClick={() => scrollTo("hero")} />
+          <Logo onClick={goHome} />
           <DesktopLinks onNav={scrollTo} />
           <div className="hidden md:block">
             <WhatsAppCTA />
           </div>
-          {/* Hamburger only shows when drawer is closed */}
           {!menuOpen && (
             <Hamburger onClick={() => setMenuOpen(true)} />
           )}

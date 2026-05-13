@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { WHATSAPP, NAV_LINKS } from "../../constants";
 
 // ─── FOOTER LINK ──────────────────────────────────────────────────────────────
@@ -42,6 +43,8 @@ function SocialBtn({ label, href }) {
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
 export default function Footer() {
   const footerRef = useRef(null);
+  const navigate  = useNavigate();
+  const location  = useLocation();
 
   useEffect(() => {
     const els = footerRef.current?.querySelectorAll(".fo-animate");
@@ -63,9 +66,27 @@ export default function Footer() {
     return () => io.disconnect();
   }, []);
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  // On homepage: smooth scroll to section
+  // On any other page: navigate home first, then scroll
+  const scrollTo = useCallback((id) => {
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 350);
+    }
+  }, [location.pathname, navigate]);
+
+  // Back to top — scroll to top if home, navigate home if not
+  const goTop = useCallback(() => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  }, [location.pathname, navigate]);
 
   const year = new Date().getFullYear();
 
@@ -99,14 +120,11 @@ export default function Footer() {
         ref={footerRef}
         className="bg-[#0A0A0A] border-t border-white/6"
       >
-        {/* ── Large editorial headline ticker ──────────────────────── */}
+        {/* ── Ticker ── */}
         <div className="overflow-hidden border-b border-white/4 py-6 select-none">
           <div className="footer-ticker flex whitespace-nowrap">
             {Array.from({ length: 8 }).map((_, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-8 px-6"
-              >
+              <span key={i} className="inline-flex items-center gap-8 px-6">
                 <span
                   className="font-['Playfair_Display',serif] font-black text-white/4 whitespace-nowrap italic"
                   style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
@@ -119,15 +137,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Main footer grid ─────────────────────────────────────── */}
+        {/* ── Main grid ── */}
         <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-16 pb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
-            {/* Col 1 — Brand ── */}
+            {/* Col 1 — Brand */}
             <div className="fo-animate fo-d0 lg:col-span-1">
-              {/* Logo */}
               <button
-                onClick={() => scrollTo("hero")}
+                onClick={goTop}
                 className="flex items-center gap-2.5 mb-5 bg-transparent border-none cursor-pointer group p-0"
               >
                 <div className="w-7 h-7 bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F5F0EB] transition-colors duration-200">
@@ -144,7 +161,6 @@ export default function Footer() {
                 Nairobi's most trusted sneaker destination. Authentic kicks, real service.
               </p>
 
-              {/* Socials */}
               <div className="flex gap-2 mt-8">
                 <SocialBtn label="IG" href="#" />
                 <SocialBtn label="TK" href="#" />
@@ -153,7 +169,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 2 — Quick links ── */}
+            {/* Col 2 — Navigation */}
             <div className="fo-animate fo-d1">
               <p className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.26em] uppercase text-white/20 mb-5">
                 Navigation
@@ -165,7 +181,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 3 — Info ── */}
+            {/* Col 3 — Contact */}
             <div className="fo-animate fo-d2">
               <p className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.26em] uppercase text-white/20 mb-5">
                 Contact
@@ -177,27 +193,19 @@ export default function Footer() {
                   ["hello@mwandisneakers.co.ke", "mailto:hello@mwandisneakers.co.ke"],
                   ["Mon – Sat · 8 am – 8 pm"],
                 ].map(([text, href], i) => href ? (
-                  <a
-                    key={i}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/25 hover:text-white/60 transition-colors duration-200"
-                  >
+                  <a key={i} href={href} target="_blank" rel="noreferrer"
+                    className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/25 hover:text-white/60 transition-colors duration-200">
                     {text}
                   </a>
                 ) : (
-                  <span
-                    key={i}
-                    className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/25"
-                  >
+                  <span key={i} className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/25">
                     {text}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Col 4 — CTA ── */}
+            {/* Col 4 — CTA */}
             <div className="fo-animate fo-d3 flex flex-col gap-5">
               <p className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.26em] uppercase text-white/20">
                 Get In Touch
@@ -223,10 +231,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Divider ── */}
+          {/* Divider */}
           <div className="fo-animate fo-d4 h-px bg-white/6 mb-8" />
 
-          {/* ── Bottom bar ── */}
+          {/* Bottom bar */}
           <div className="fo-animate fo-d4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <span className="font-['DM_Sans',sans-serif] text-[0.6rem] font-medium tracking-[0.16em] uppercase text-white/15">
               © {year} Mwandi's Sneakers Place · All rights reserved
@@ -236,9 +244,8 @@ export default function Footer() {
               <span className="font-['DM_Sans',sans-serif] text-[0.6rem] font-medium tracking-[0.16em] uppercase text-white/15">
                 Nairobi, Kenya
               </span>
-              {/* Back to top */}
               <button
-                onClick={() => scrollTo("hero")}
+                onClick={goTop}
                 className="
                   flex items-center gap-2 bg-transparent border-none cursor-pointer
                   font-['DM_Sans',sans-serif] text-[0.6rem] font-bold
