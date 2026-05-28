@@ -7,7 +7,7 @@ function AnnouncementBar() {
   return (
     <div className="bg-white py-2.5 px-6 text-center">
       <p className="font-['DM_Sans',sans-serif] text-[0.65rem] font-bold tracking-[0.22em] uppercase text-[#0A0A0A]">
-        Free delivery within Nairobi and its environs&nbsp;&nbsp;·&nbsp;&nbsp;
+        Free delivery within Nairobi CBD&nbsp;&nbsp;·&nbsp;&nbsp;
         100% Authentic Guaranteed
       </p>
     </div>
@@ -82,7 +82,7 @@ function WhatsAppCTA({ fullWidth = false, className = "" }) {
         ${className}
       `}
     >
-      WhatsApp Us
+      Contact Us
     </a>
   );
 }

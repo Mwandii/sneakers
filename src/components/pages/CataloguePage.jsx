@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { categories } from "../../data/products";
+import { categories, products, getCategoriesWithCounts } from "../../data/products";
 
 // ─── CATEGORY CARD ────────────────────────────────────────────────────────────
 function CategoryCard({ category }) {
@@ -73,6 +73,8 @@ export default function CataloguePage() {
     return () => io.disconnect();
   }, []);
 
+  const updatedCategories = getCategoriesWithCounts(categories, products);
+
   return (
     <>
       <style>{`
@@ -135,7 +137,7 @@ export default function CataloguePage() {
 
         {/* ── Category grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-white/4">
-          {categories.map((cat, i) => (
+          {updatedCategories.map((cat, i) => (
             <div
               key={cat.id}
               className={`cp-animate cp-d${Math.min(i, 7)} bg-[#0A0A0A]`}

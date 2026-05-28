@@ -99,7 +99,7 @@ export default function WhyUs() {
 
           {/* Right — supporting statement */}
           <p className="font-['DM_Sans',sans-serif] text-[0.88rem] font-light text-white/25 max-w-70 leading-[1.85] hidden md:block">
-            Every decision we make — from sourcing to delivery — is built around one thing: your trust.
+            Every decision we make — from sourcing to delivery — is built around one thing: your satisfaction.
           </p>
         </div>
 

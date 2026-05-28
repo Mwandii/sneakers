@@ -162,10 +162,9 @@ export default function Footer() {
               </p>
 
               <div className="flex gap-2 mt-8">
-                <SocialBtn label="IG" href="#" />
-                <SocialBtn label="TK" href="#" />
+                <SocialBtn label="FB" href="https://www.facebook.com/mwandisneakers" />
+                <SocialBtn label="TK" href="https://www.tiktok.com/@mwandissneakers" />
                 <SocialBtn label="WA" href={`https://wa.me/${WHATSAPP}`} />
-                <SocialBtn label="TW" href="#" />
               </div>
             </div>
 
@@ -188,10 +187,10 @@ export default function Footer() {
               </p>
               <div className="flex flex-col gap-4">
                 {[
-                  ["Thika Road, Nairobi, Kenya"],
+                  ["Nairobi, Kenya"],
                   ["+254 718 525 592", `https://wa.me/${WHATSAPP}`],
-                  ["hello@mwandisneakers.co.ke", "mailto:hello@mwandisneakers.co.ke"],
-                  ["Mon – Sat · 8 am – 8 pm"],
+                  ["hello@mwandisneakers.co.ke", "mailto:athanasmwandi5@gmail.com"],
+                  ["Mon – Sat · 6 am – 7 pm"],
                 ].map(([text, href], i) => href ? (
                   <a key={i} href={href} target="_blank" rel="noreferrer"
                     className="font-['DM_Sans',sans-serif] text-[0.82rem] font-light text-white/25 hover:text-white/60 transition-colors duration-200">

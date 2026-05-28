@@ -70,7 +70,7 @@ export const marqueeItems = [
 
 export const whyUs = [
   { num: "01", title: "100% Authentic", body: "Every pair we sell is verified genuine — no reps, no fakes, ever." },
-  { num: "02", title: "Same Day Delivery",  body: "Order today, have your kicks tomorrow. Nairobi & beyond."         },
+  { num: "02", title: "Same Day Delivery",  body: "Order today, have your kicks within 24hrs. Nairobi & beyond."         },
   { num: "03", title: "WhatsApp First", body: "Talk directly to us. Real people, real answers — no bots."        },
   { num: "04", title: "Easy Returns",   body: "Wrong size? Wrong fit? We make it right, no questions asked."     },
 ];

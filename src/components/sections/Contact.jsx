@@ -207,7 +207,7 @@ export default function Contact() {
 
             {/* Info rows */}
             <div className="border-t border-white/6">
-              <InfoRow label="Location"         value="Thika Road, Nairobi, Kenya" />
+              <InfoRow label="Location"         value="Nairobi, Kenya" />
               <InfoRow
                 label="Phone / WhatsApp"
                 value="+254 718 525 592"
@@ -216,9 +216,9 @@ export default function Contact() {
               <InfoRow
                 label="Email"
                 value="hello@mwandisneakers.co.ke"
-                href="mailto:hello@mwandisneakers.co.ke"
+                href="mailto:athanasmwandi5@gmail.com"
               />
-              <InfoRow label="Hours" value="Mon – Sat · 8 am – 8 pm" />
+              <InfoRow label="Hours" value="Mon – Sat · 6 am – 7 pm" />
             </div>
 
             {/* Socials */}
@@ -227,10 +227,9 @@ export default function Contact() {
                 Follow Us
               </p>
               <div className="flex gap-2.5">
-                <SocialBtn label="IG" href="#" />
-                <SocialBtn label="TK" href="#" />
+                <SocialBtn label="FB" href="https://www.facebook.com/mwandisneakers" />
+                <SocialBtn label="TK" href="https://www.tiktok.com/@mwandissneakers" />
                 <SocialBtn label="WA" href={`https://wa.me/${WHATSAPP}`} />
-                <SocialBtn label="TW" href="#" />
               </div>
             </div>
 

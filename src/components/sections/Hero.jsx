@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 import { WHATSAPP, IMAGES } from "../../constants";
+import { Link } from "react-router-dom";
 
 // ─── STATS ───────────────────────────────────────────────────────────────────
 const STATS = [
-  { num: "500+", label: "Pairs Sold" },
+  { num: "200+", label: "Pairs Sold" },
   { num: "100%", label: "Authentic"  },
-  { num: "48hr", label: "Delivery"   },
+  { num: "24hr", label: "Delivery"   },
   { num: "5 ★",  label: "Rated"      },
 ];
 
@@ -131,7 +132,7 @@ export default function Hero() {
           <div className="hu hu-d1 flex items-center gap-3 mb-6">
             <span className="block w-8 h-px bg-white/30 shrink-0" />
             <span className="font-['DM_Sans',sans-serif] text-[0.62rem] font-bold tracking-[0.3em] uppercase text-white/40">
-              New Season Drop — 2025
+              New Season Drop — 2026
             </span>
           </div>
 
@@ -155,24 +156,24 @@ export default function Hero() {
 
           {/* Body */}
           <p className="hu hu-d3 font-['DM_Sans',sans-serif] font-light text-white/35 leading-[1.9] max-w-100 mb-10 text-[0.95rem] md:text-base">
-            Nairobi's most trusted sneaker destination. Authentic, exclusive, and delivered to your door in 48 hours.
+            Nairobi's most trusted sneaker destination. Authentic, exclusive, and delivered to your door in 24 hours.
           </p>
 
           {/* CTAs */}
           <div className="hu hu-d4 flex flex-wrap gap-4 mb-16">
             {/* Primary */}
-            <button
-              onClick={() => scrollTo("new-arrivals")}
-              className="
-                bg-white text-[#0A0A0A]
-                font-['DM_Sans',sans-serif] text-[0.72rem] font-bold
-                tracking-[0.22em] uppercase px-10 py-4
-                hover:bg-[#F5F0EB] hover:-translate-y-0.5
-                transition-all duration-200 cursor-pointer border-none
-              "
-            >
-              Shop Collection
-            </button>
+            <Link
+  to="/catalogue"
+  className="
+    bg-white text-[#0A0A0A]
+    font-['DM_Sans',sans-serif] text-[0.72rem] font-bold
+    tracking-[0.22em] uppercase px-10 py-4
+    hover:bg-[#F5F0EB] hover:-translate-y-0.5
+    transition-all duration-200 cursor-pointer border-none inline-block
+  "
+>
+  Shop Collection
+</Link>
 
             {/* Secondary */}
             <a

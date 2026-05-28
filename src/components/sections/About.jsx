@@ -118,7 +118,7 @@ export default function About() {
               <div className="flex items-end gap-2 mb-1">
                 <span className="font-['Playfair_Display',serif] font-black text-white leading-none"
                   style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}>
-                  5+
+                  4+
                 </span>
               </div>
               <p className="font-['DM_Sans',sans-serif] text-[0.58rem] font-bold tracking-[0.2em] uppercase text-white/30">
@@ -147,7 +147,7 @@ export default function About() {
             </h2>
 
             <p className="ab-animate ab-d2 font-['DM_Sans',sans-serif] font-light text-white/35 leading-[1.9] text-[0.93rem] mb-5">
-              Born from a genuine love for sneaker culture, Mwandi's Sneakers Place started right here in Nairobi. We built this for the collector who refuses to settle, and the everyday wearer who knows quality when they see it.
+              Born from a genuine love for sneaker culture, Mwandi's Sneakers Place started right here in Nairobi. We built this for the customer who values quality, comfort, and style — because looking good should feel just as good.
             </p>
 
             <p className="ab-animate ab-d3 font-['DM_Sans',sans-serif] font-light text-white/35 leading-[1.9] text-[0.93rem] mb-12">
@@ -156,9 +156,9 @@ export default function About() {
 
             {/* Stats row */}
             <div className="ab-animate ab-d4 flex flex-wrap gap-8 mb-12 pb-12 border-b border-white/[0.07]">
-              <StatBlock num="500+"  label="Pairs Sold"       />
+              <StatBlock num="200+"  label="Pairs Sold"       />
               <StatBlock num="100%"  label="Authentic"        />
-              <StatBlock num="48hr"  label="Avg. Delivery"    />
+              <StatBlock num="24hr"  label="Avg. Delivery"    />
             </div>
 
             {/* CTA */}
