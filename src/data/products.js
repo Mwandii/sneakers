@@ -1,13 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// products.js
-// Single source of truth for all catalogue data.
-// When you move to a real backend (Supabase, Firebase, etc.) swap this file's
-// exports for API calls — the rest of the app doesn't change at all.
-// ─────────────────────────────────────────────────────────────────────────────
-
 // ─── CATEGORIES ──────────────────────────────────────────────────────────────
 // Each category shows as a card on the /catalogue page.
-// cover: use your own image paths later — these are Unsplash placeholders.
 
 export const categories = [
   {
@@ -26,7 +18,7 @@ export const categories = [
     id: "sb-dunks",
     label: "SB Dunks",
     brand: "Nike",
-    cover: "https://images.unsplash.com/photo-1613987245117-e2f096e5e583?w=800&q=80",
+    cover: "images/sbdunks.png",
   },
   {
     id: "air-force-1",
