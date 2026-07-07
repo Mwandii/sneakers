@@ -14,10 +14,9 @@ function CategoryCard({ category }) {
         <img
           src={category.cover}
           alt={category.label}
-          className="w-full h-full object-cover opacity-60 transition-transform duration-700 ease-[cubic-bezier(.25,.46,.45,.94)] group-hover:scale-[1.06]"
+          className="w-full h-full object-cover  transition-transform duration-700 ease-[cubic-bezier(.25,.46,.45,.94)] group-hover:scale-[1.06]"
         />
-        {/* Gradient */}
-        <div className="absolute inset-0 bg-linear-to-t from-[#111111] via-[#111111]/30 to-transparent" />
+        
       </div>
 
       {/* Info */}

@@ -37,7 +37,7 @@ function ProductCard({ product, large }) {
         <img
           src={product.img}
           alt={product.name}
-          className="w-full h-full object-cover opacity-90 transition-transform duration-700 ease-[cubic-bezier(.25,.46,.45,.94)] group-hover:scale-[1.06]"
+          className="w-full h-full object-cover  transition-transform duration-700 ease-[cubic-bezier(.25,.46,.45,.94)] group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-linear-to-t from-[#111111]/60 via-transparent to-transparent" />
 
