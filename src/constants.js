@@ -36,7 +36,7 @@ export const IMAGES = {
 
 // ─── NAV LINKS ────────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: "Collection", id: "new-arrivals" },
+  { label: "New Arrivals", id: "new-arrivals" },
   { label: "Trending",   id: "trending"     },
   { label: "Featured",   id: "featured"     },
   { label: "About",      id: "about"        },
